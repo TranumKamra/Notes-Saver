@@ -5,30 +5,16 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body, html {
+html, body {
   height: 100%;
+  background: linear-gradient(135deg, #f0f4ff, #e8f0fe);
 }
 
+/* ---------- App Root Container ---------- */
 #root {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.Navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  background-color: #f0f0f0;
-  padding: 15px 30px;
-  border-radius: 8px;
-}
-
-.home-input {
-  padding: 8px;
-  border-radius: 1rem; 
-  border: 1px solid #ccc;
-  margin-top: 8px; /* or 2rem if you want bigger spacing */
+  padding: 40px 20px;
 }

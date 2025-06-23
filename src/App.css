@@ -1,27 +1,143 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+  overflow-x: hidden;
 }
 
-body, html {
-  height: 100%;
-}
-
+/* ---------- App Root Container ---------- */
 #root {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 40px 20px;
 }
 
+/* ---------- Home Component Container ---------- */
+.home-container {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;        /* Keeps it centered & limits width */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ---------- Input + Button Row ---------- */
+.home {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---------- Input Styling ---------- */
+.home-input {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 2px solid #d0d7e2;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.home-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ---------- Button Styling ---------- */
+button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0056b3, #0099dd);
+}
+
+/* ---------- Textarea Styling ---------- */
+.textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid #d0d7e2;
+  resize: none;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  background: #fdfdfd;
+}
+
+.textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ---------- Navbar ---------- */
 .Navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  background-color: #f0f0f0;
-  padding: 15px 30px;
+  gap: 28px;
+  background: white;
+  padding: 16px 30px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- NavLink Styling ---------- */
+.nav-link {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  padding: 10px 18px;
   border-radius: 8px;
-} */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background: #f0f4ff;
+  color: #007bff;
+}
+
+.nav-link.active {
+  background: #007bff;
+  color: white;
+}
+
+/* ---------- Responsive Fixes ---------- */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;      /* Stack input and button vertically */
+    gap: 16px;
+  }
+
+  .home-input,
+  button {
+    width: 100%;                 /* Full width on small screens */
+  }
+
+  .Navbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .home-container {
+    padding: 20px;
+  }
+}
