@@ -1,143 +1,129 @@
-body {
-  overflow-x: hidden;
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ---------- App Root Container ---------- */
+html, body {
+  height: 100%;
+  background: linear-gradient(to right, #e0f7fa, #f0f4ff);
+}
+
 #root {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start; /* Top align */
   padding: 40px 20px;
 }
 
-/* ---------- Home Component Container ---------- */
+/* 🟩 Main container for Home content */
 .home-container {
-  background: white;
-  padding: 40px;
+  background-color: white;
+  padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
   width: 100%;
-  max-width: 700px;        /* Keeps it centered & limits width */
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  gap: 20px;
 }
 
-/* ---------- Input + Button Row ---------- */
+/* 🟩 Row for input and button */
 .home {
   display: flex;
-  flex-direction: row;
-  gap: 16px;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-/* ---------- Input Styling ---------- */
+/* 🟩 Input field */
 .home-input {
   flex: 1;
-  padding: 14px 20px;
-  border-radius: 12px;
-  border: 2px solid #d0d7e2;
+  min-width: 200px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
   font-size: 16px;
-  transition: border 0.3s ease;
 }
 
-.home-input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* ---------- Button Styling ---------- */
+/* 🟩 Button */
 button {
-  padding: 14px 24px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #007bff, #00c6ff);
+  border-radius: 10px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
   color: white;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+  white-space: nowrap;
+  transition: 0.3s;
 }
 
 button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #0056b3, #0099dd);
+  background: linear-gradient(to right, #0056b3, #0099cc);
 }
 
-/* ---------- Textarea Styling ---------- */
+/* 🟩 Textarea */
 .textarea {
   width: 100%;
-  padding: 16px 20px;
-  border-radius: 12px;
-  border: 2px solid #d0d7e2;
-  resize: none;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
   font-size: 16px;
+  resize: vertical;
   font-family: inherit;
-  transition: border-color 0.3s ease;
-  background: #fdfdfd;
 }
 
-.textarea:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* ---------- Navbar ---------- */
+/* 🟩 Navbar */
 .Navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   background: white;
-  padding: 16px 30px;
-  border-radius: 12px;
-  margin-bottom: 32px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 12px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
 }
 
-/* ---------- NavLink Styling ---------- */
 .nav-link {
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
-  padding: 10px 18px;
+  padding: 8px 16px;
+  font-weight: bold;
   border-radius: 8px;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.nav-link:hover {
-  background: #f0f4ff;
-  color: #007bff;
+  color: #333;
+  transition: all 0.3s ease;
 }
 
 .nav-link.active {
-  background: #007bff;
+  background-color: #007bff;
   color: white;
 }
 
-/* ---------- Responsive Fixes ---------- */
-@media (max-width: 768px) {
+.nav-link:hover {
+  background-color: #f0f4ff;
+  color: #007bff;
+}
+
+/* 🟩 Responsive Fix */
+@media (max-width: 600px) {
   .home {
-    flex-direction: column;      /* Stack input and button vertically */
-    gap: 16px;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .home-input,
   button {
-    width: 100%;                 /* Full width on small screens */
+    width: 100%;
   }
 
   .Navbar {
     flex-direction: column;
-    gap: 12px;
-  }
-
-  .home-container {
-    padding: 20px;
+    gap: 10px;
   }
 }
