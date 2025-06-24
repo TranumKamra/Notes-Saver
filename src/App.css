@@ -279,3 +279,24 @@ button:hover,
   }
   .paste-actions button { width: 100%; }
 }
+.paste-actions a {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: linear-gradient(to right, var(--pink-light), var(--pink-med));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.paste-actions a:hover {
+  background: linear-gradient(to right, var(--pink-med), var(--pink-dark));
+  transform: translateY(-1px);
+}
+.Navbar {
+  max-width: 760px;   /* match .paste-page width */
+  width: 100%;        /* stretch within max-width */
+  margin: 0 auto 24px;/* center it horizontally */
+}

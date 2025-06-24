@@ -7,39 +7,41 @@ import Home from './components/Home';
 import Paste from './components/Paste';
 import ViewPaste from './components/ViewPaste';
 
-const router = createBrowserRouter(
-  [
-    {
-      path:"/",
-      element:
-      <div>
-      <Navbar/>
-      <Home/>
-    </div>
-      
-    },
+const router = createBrowserRouter([
+  /* Home -------------------------------------------------- */
+  {
+    path: '/',
+    element: (
+      <div className="page-wrapper">
+        <Navbar />
+        <Home />
+      </div>
+    ),
+  },
 
-    {
-      path:"/pastes",
-      element:
-      <div>
-      <Navbar/>
-      <Paste/>
-    </div>
-      
-    },
+  /* All pastes ------------------------------------------- */
+  {
+    path: '/pastes',
+    element: (
+       <div className="page-wrapper">
+        <Navbar />
+        <Paste />
+      </div>
+    ),
+  },
 
-    {
-      path:"/pastes/:id",
-      element:
-      <div>
-      <Navbar/>
-     <ViewPaste/>
-    </div>
-      
-    },
-  ]
-);
+  /* Single paste (VIEW page) ------------------------------ */
+  {
+    /* 👇 keep this exact path */
+    path: '/pastes/:id',
+    element: (
+      <div className="page-wrapper">
+        <Navbar />
+        <ViewPaste />
+      </div>
+    ),
+  },
+]);
 
 function App() {
   
