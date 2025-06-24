@@ -1,129 +1,281 @@
-/* Reset & base styles */
-* {
+/* ────────────────────────────────────────── */
+/*  0.  DESIGN TOKENS                        */
+/* ────────────────────────────────────────── */
+:root {
+  --pink-light: #ffb6c1;   /* light baby pink  */
+  --pink-med:   #ff69b4;   /* medium baby pink */
+  --pink-dark:  #ff1493;   /* deep baby pink   */
+  --gray-100:   #f5f5f5;
+  --gray-300:   #ccc;
+  --gray-600:   #666;
+  --gray-800:   #222;
+}
+
+/* ────────────────────────────────────────── */
+/*  1. RESET & BASE                          */
+/* ────────────────────────────────────────── */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   background: linear-gradient(to right, #e0f7fa, #f0f4ff);
+  color: var(--gray-800);
 }
 
 #root {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: start; /* Top align */
+  align-items: flex-start;
   padding: 40px 20px;
 }
 
-/* 🟩 Main container for Home content */
-.home-container {
-  background-color: white;
-  padding: 30px;
-  border-radius: 16px;
+/* Shared elevation */
+.card-elev {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Shared fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ────────────────────────────────────────── */
+/*  2. NAVBAR                                */
+/* ────────────────────────────────────────── */
+.Navbar {
+  display: flex;
+  gap: 20px;
+  background: #fff;
+  padding: 12px 24px;
+  border-radius: 10px;
+  animation: fadeUp .45s ease-out;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  color: var(--gray-800);
+  transition: background .3s, color .3s;
+}
+.nav-link.active,
+.nav-link:hover {
+  background: var(--pink-med);
+  color: #fff;
+}
+
+/* ────────────────────────────────────────── */
+/*  3. UNIVERSAL BUTTON STYLE                */
+/* ────────────────────────────────────────── */
+button,
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, var(--pink-light), var(--pink-med));
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background .3s, transform .2s;
+}
+button:hover,
+.btn:hover {
+  background: linear-gradient(to right, var(--pink-med), var(--pink-dark));
+  transform: translateY(-1px);
+}
+
+/* ────────────────────────────────────────── */
+/*  4. HOME PAGE                             */
+/* ────────────────────────────────────────── */
+.home-container {
+  background: #fff;
   max-width: 600px;
   width: 100%;
+  padding: 30px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  animation: fadeUp .45s ease-out;
 }
+.home-container.card-elev   { box-shadow: 0 8px 20px rgba(0, 0, 0, .08); }
 
-/* 🟩 Row for input and button */
 .home {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
-/* 🟩 Input field */
+.home-input,
+.textarea {
+  border: 1px solid var(--gray-300);
+  border-radius: 10px;
+  font-size: 16px;
+}
+
 .home-input {
   flex: 1;
   min-width: 200px;
   padding: 12px 16px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
 }
 
-/* 🟩 Button */
-button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(to right, #007bff, #00c6ff);
-  color: white;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: linear-gradient(to right, #0056b3, #0099cc);
-}
-
-/* 🟩 Textarea */
 .textarea {
   width: 100%;
   padding: 16px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
   resize: vertical;
-  font-family: inherit;
 }
 
-/* 🟩 Navbar */
-.Navbar {
+/* ────────────────────────────────────────── */
+/*  5. PASTES PAGE                           */
+/* ────────────────────────────────────────── */
+.paste-page {
+  background: #fff;
+  /* max-width: 600px; */
+  width: 100%;   
+  padding: 30px;
+  border-radius: 16px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeUp .45s ease-out;
+}
+.paste-page.card-elev { box-shadow: 0 8px 20px rgba(0, 0, 0, .08); }
+
+.paste-search,
+.paste-container,
+.paste-card {
+  width: 100%;
+}
+/* Search bar */
+.paste-search {
+  display: flex;
   align-items: center;
+  gap: 10px;
+  background: var(--pink-light);
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+  
+.paste-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--gray-800);
+}
+
+/* List & card */
+.paste-container {
+   display: flex;         /* still vertical stack            */
+  flex-direction: column;
   gap: 20px;
-  background: white;
-  padding: 12px 24px;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
+  align-items: stretch; 
 }
 
-.nav-link {
-  text-decoration: none;
-  padding: 8px 16px;
-  font-weight: bold;
-  border-radius: 8px;
-  color: #333;
-  transition: all 0.3s ease;
+.paste-card {
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 16px;
+  transition: transform 0.2s ease;
+}
+.paste-card.card-elev { box-shadow: 0 8px 20px rgba(0, 0, 0, .08); }
+.paste-card:hover     { transform: translateY(-4px); }
+
+/* header */
+.paste-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-.nav-link.active {
-  background-color: #007bff;
-  color: white;
+.paste-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  word-break: break-word;
 }
 
-.nav-link:hover {
-  background-color: #f0f4ff;
-  color: #007bff;
+.paste-date {
+  font-size: 0.9rem;
+  color: var(--gray-600);
 }
 
-/* 🟩 Responsive Fix */
+/* snippet */
+.paste-snippet {
+  margin: 12px 0;
+  line-height: 1.2;
+  color: var(--gray-800);
+}
+
+/* Actions */
+.paste-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.paste-actions button {            /* inherits .btn styling */
+  padding: 10px 14px;
+  font-size: 1rem;
+}
+
+.paste-actions svg { pointer-events: none; }
+
+/* empty / no results */
+.paste-empty {
+  text-align: center;
+  color: var(--gray-600);
+  font-size: 1.05rem;
+  margin-top: 60px;
+  animation: fadeUp .4s ease;
+}
+
+/* stretch cards but keep them visually centred */
+.centre-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;      /* cards sit in the horizontal centre */
+}
+
+/* make each card take the full page width up to the max-width you set */
+.centre-stack .paste-card {
+  width: 100%;
+}
+
+/* centre the snippet text inside each card */
+.txt-centre {
+  text-align: center;
+}
+
+/* ────────────────────────────────────────── */
+/*  6. RESPONSIVE                            */
+/* ────────────────────────────────────────── */
 @media (max-width: 600px) {
-  .home {
+  .home        { flex-direction: column; }
+  .home-input,
+  button       { width: 100%; }
+
+  .Navbar      { flex-direction: column; gap: 10px; }
+
+  .paste-card  { padding: 18px; }
+  .paste-actions {
     flex-direction: column;
     align-items: stretch;
   }
-
-  .home-input,
-  button {
-    width: 100%;
-  }
-
-  .Navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
+  .paste-actions button { width: 100%; }
 }
