@@ -1,12 +1,56 @@
-# React + Vite
+ 📝 Notes-Saver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple yet beautiful web app to save, edit, search, view, copy, and delete personal notes or pastes.  
+Built using **React**, **Redux Toolkit**, and styled with a soft baby-pink aesthetic. All data is saved locally in your browser using `localStorage`.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🆕 **Create** new notes with title and content
+- ✏️ **Edit** existing notes via `/`
+- 🔍 **Search** by title or content
+- 👁️ **View** a full note on a separate page (`/view/:id`)
+- 📋 **Copy** content with one click
+- 🗑️ **Delete** unwanted notes
+- 🔔 Instant feedback with **toasts**
+- 💾 Data is saved offline using `localStorage`
+- 🎨 Clean, responsive, and gradient UI
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/TranumKamra/Notes-Saver.git
+cd Notes-Saver
+npm install
+npm run dev
+
+
+🧱 Built With
+React 18
+
+Redux Toolkit
+
+React Router v6
+
+React Hot Toast
+
+Date-fns
+
+Vite
+
+React Icons
+
+
+
+🧪 Usage Guide
+On the Home page (/), enter a title and content, then click Create My Paste
+
+All pastes appear under the Pastes tab (/pastes)
+
+Click 👁️ to view full note, ✏️ to edit, 📋 to copy, 🗑️ to delete
+
+Type in the search bar to instantly filter
+
+
+
